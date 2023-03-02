@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_13_100717) do
-  create_table "airlines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "airlines", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
     t.string "slug"
@@ -19,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_13_100717) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "score"
